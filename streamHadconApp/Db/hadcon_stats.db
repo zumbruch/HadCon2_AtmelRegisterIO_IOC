@@ -1,0 +1,51 @@
+record(sub, "$(IOC):asg:asinit")
+{
+	field(DESC, "security reload")
+	field(SCAN, "Passive")
+	field(INAM, "asSubInit")
+	field(SNAM, "asSubProcess")
+	field(ASG, "super")
+}
+record(calc, "$(IOC):stats:scan1")
+{
+	field(DESC, "Counter")
+	field(SCAN,"1 second")
+	field(CALC, "(A<B)?(A+C):D")
+	field(INPA, "$(IOC):stats:scan1.VAL")
+	field(INPB, "10")
+	field(INPC, "1")
+	field(INPD, "0")
+	field(EGU, "Counts")
+	field(HOPR, "10")
+	field(HIHI, "9")
+	field(HIGH, "7")
+	field(LOW, "0")
+	field(LOLO, "0")
+	field(HHSV, "MAJOR")
+	field(HSV, "MINOR")
+	field(LSV, "MINOR")
+	field(LLSV, "MAJOR")
+	field(FLNK, "$(IOC):stats:led")
+}
+
+record(calc, "$(IOC):stats:led")
+{
+	field(DESC, "LED")
+	field(CALC, "(A & 0x1)")
+	field(INPA, "$(IOC):stats:scan1.VAL")
+}
+record(stringin, "$(IOC):stats:time")
+{
+    field(DESC, "Current time and date")
+    field(DTYP, "Soft Timestamp")
+    field(INP, "@%Y-%m-%d %H:%M:%S.%03f")
+	field(SCAN,"1 second")
+}
+record(stringin, "$(IOC):stats:btime")
+{
+    field(DESC, "Last IOC boot time and date")
+    field(DTYP, "Soft Timestamp")
+    field(INP, "@%Y-%m-%d %H:%M:%S.%03f")
+	field(SCAN,"Passive")
+	field(PINI, "YES")
+}

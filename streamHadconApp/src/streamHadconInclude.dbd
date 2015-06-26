@@ -1,0 +1,6 @@
+include "base.dbd"                            # EPICS-Base
+include "stream.dbd"                          # StreamDevice
+include "asyn.dbd"                            # Asyn driver
+registrar(drvAsynIPPortRegisterCommands)      # for configuring ethernet
+registrar(drvAsynSerialPortRegisterCommands)  # for configuring serial port
+#registrar(iocshSystemCommand)                 # for running system commands

@@ -1,0 +1,49 @@
+
+# debug globals
+#
+# HADCON: $(HADCON)
+#
+
+# HADCON: "$(HADCON)"
+# PREFIX: "$(PREFIX)"
+# SUFFIX: "$(SUFFIX)"
+
+
+record(stringin, "$(PREFIX)$(HADCON):atmelDEBUG$(SUFFIX)") {
+  field(DESC, "atmel DEBG messages: $(HADCON)")
+  field(DTYP, "stream")
+  field(SCAN, "I/O Intr")
+  field(INP, "@hadcon_DEBG.proto DEBG_intr $(device)")
+}
+
+record(longout, "$(PREFIX)$(HADCON):set_DEBG_level$(SUFFIX)") {
+  field(DESC, "atmel set Debug level: $(HADCON)")
+  field(DTYP, "stream")
+  field(OUT, "@hadcon_DEBG.proto set_level_intr $(device)")
+}
+
+record(longout, "$(PREFIX)$(HADCON):set_DEBG_mask$(SUFFIX)") {
+  field(DESC, "atmel set Debug level: $(HADCON)")
+  field(DTYP, "stream")
+  field(OUT, "@hadcon_DEBG.proto set_mask_intr $(device)")
+}
+
+record(longin, "$(PREFIX)$(HADCON):DEBG_level$(SUFFIX)") {
+  field(DESC, "atmel get Debug level: $(HADCON)")
+  field(DTYP, "stream")
+  field(SCAN, "I/O Intr")
+  field(INP, "@hadcon_DEBG.proto level_intr $(device)")
+}
+
+record(longin, "$(PREFIX)$(HADCON):DEBG_mask$(SUFFIX)") {
+  field(DESC, "atmel get Debug level: $(HADCON)")
+  field(DTYP, "stream")
+  field(SCAN, "I/O Intr")
+  field(INP, "@hadcon_DEBG.proto mask_intr $(device)")
+}
+
+record(bo, "$(PREFIX)$(HADCON):request_DEBG$(SUFFIX)") {
+  field(DESC, "atmel request DEBG status: $(HADCON)")
+  field(DTYP, "stream")
+  field(OUT, "@hadcon_DEBG.proto request_intr $(device)")
+}

@@ -1,0 +1,58 @@
+# Substitutions:
+#
+# 	PREFIX             : "$(PREFIX)"
+# 	HADCON             : "$(HADCON)"
+# 	SUFFIX             : "$(SUFFIX)"
+#   SELECTION_MASK_SEQ : "$(SELECTION_MASK_SEQ)"
+#
+#   portA              : "$(portA)"
+#   portB              : "$(portB)"
+#   portC              : "$(portC)"
+#   portE              : "$(portD)"
+#   portD              : "$(portE)"
+#   portF              : "$(portF)"
+#   portG              : "$(portG)"
+#
+#   LNK_PRE_DELAY     : "$(LNK_PRE_DELAY)"
+#   LNK_POST_DELAY    : "$(LNK_POST_DELAY)"
+#
+record(seq, "$(PREFIX)$(HADCON):IOports:readAll$(SUFFIX)") {
+  alias("$(ALIAS):readAll")
+  field(DESC, "oneWire read: IOC $(HADCON)")
+  field(SCAN, "Passive")
+  field(SELM, "Mask")
+  field(SELN, "$(SELECTION_MASK_SEQ)")
+#
+  field(DO1, "1")
+  field(DO2, "1")
+  field(DO3, "1")
+  field(DO4, "1")
+  field(DO5, "1")
+  field(DO6, "1")
+  field(DO7, "1")
+  field(DO8, "0")
+#
+  field(DLY1, "$(LNK_PRE_DELAY)")
+  field(DLY2, "$(LNK_PRE_DELAY)")
+  field(DLY3, "$(LNK_PRE_DELAY)")
+  field(DLY4, "$(LNK_PRE_DELAY)")
+  field(DLY5, "$(LNK_PRE_DELAY)")
+  field(DLY6, "$(LNK_PRE_DELAY)")
+  field(DLY7, "$(LNK_PRE_DELAY)")
+#
+  field(DLY8, "$(LNK_POST_DELAY)")
+#
+  field(LNK1, "$(PREFIX)$(HADCON):readAll$(portA)$(SUFFIX).PROC")
+  field(LNK2, "$(PREFIX)$(HADCON):readAll$(portB)$(SUFFIX).PROC")
+  field(LNK3, "$(PREFIX)$(HADCON):readAll$(portC)$(SUFFIX).PROC")
+  field(LNK4, "$(PREFIX)$(HADCON):readAll$(portD)$(SUFFIX).PROC")
+  field(LNK5, "$(PREFIX)$(HADCON):readAll$(portE)$(SUFFIX).PROC")
+  field(LNK6, "$(PREFIX)$(HADCON):readAll$(portF)$(SUFFIX).PROC")
+  field(LNK7, "$(PREFIX)$(HADCON):readAll$(portG)$(SUFFIX).PROC")
+  field(LNK8, "$(PREFIX)$(HADCON):dummy$(SUFFIX).PROC")
+#
+}
+
+record(ao, "$(PREFIX)$(HADCON):dummy$(SUFFIX)") {
+}
+
