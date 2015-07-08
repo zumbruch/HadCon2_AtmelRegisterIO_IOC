@@ -31,6 +31,7 @@ streamHadcon_DBD += asyn.dbd
 streamHadcon_DBD += stream.dbd
 streamHadcon_DBD += streamHadconInclude.dbd
 streamHadcon_DBD += initTrace.dbd
+streamHadcon_DBD += drvAsynSerialPort.dbd
 
 # streamHadcon_registerRecordDeviceDriver.cpp derives from streamHadcon.dbd
 streamHadcon_SRCS += streamHadcon_registerRecordDeviceDriver.cpp
