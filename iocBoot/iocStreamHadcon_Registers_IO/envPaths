@@ -1,0 +1,8 @@
+epicsEnvSet("ARCH","linux-arm")
+epicsEnvSet("IOC","iocStreamHadcon_Registers_IO")
+epicsEnvSet("TOP","/home/pi/EPICS/Apps/HadCon2_AtmelRegisterIO_IOC")
+epicsEnvSet("SUPPORT","/usr/local/epics/synApps_5_6/support")
+epicsEnvSet("SNCSEQ","/usr/local/epics/synApps_5_6/support/seq-2-1-3")
+epicsEnvSet("EPICS_BASE","/usr/local/epics/base-3.14.12.5")
+epicsEnvSet("ASYN","/usr/local/epics/synApps_5_6/support/asyn-4-18")
+epicsEnvSet("STREAM","/usr/local/epics/synApps_5_6/support/stream-2-5-1")
