@@ -21,7 +21,7 @@ drvAsynSerialPortConfigure("hadcon2","/dev/ttyUSB0",0,0,0)
 
 ## Load record instances
 ##
-#dbLoadRecords ("../../db/hadcon_global.db",       "HADCON=${HOSTNAME}:1, PREFIX=, SUFFIX=, device=hadcon2")
+dbLoadRecords ("../../db/hadcon_global.db",       "HADCON=${HOSTNAME}:1, PREFIX=, SUFFIX=, device=hadcon2")
 #dbLoadRecords ("../../db/hadcon_debug_global.db", "HADCON=${HOSTNAME}:1, PREFIX=, SUFFIX=, device=hadcon2")
 #dbLoadRecords ("../../db/hadcon_stats.db", "IOC=${HOSTNAME}")
 

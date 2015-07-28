@@ -1,22 +1,26 @@
 #RegAddress must be lower case!
 
 substitute "RegName=PORT$(port),RegAddress=$(PORT), DRVL=0x0, DRVH=0xff"
+include "hadcon_atmel_register.template"
 include "hadcon_atmel_write_register.template"
-
-substitute "RegName=PIN$(port), RegAddress=$(PIN),  DRVL=0x0, DRVH=0xff"
 include "hadcon_atmel_read_register.template"
 
-substitute "RegName=PORT$(port),RegAddress=$(PORT), DRVL=0x0, DRVH=0xff, ZNAM_B0=IDLE, ONAM_B0=PULLUP, ZNAM_B1=IDLE, ONAM_B1=PULLUP, ZNAM_B2=IDLE, ONAM_B2=PULLUP, ZNAM_B3=IDLE, ONAM_B3=PULLUP, ZNAM_B4=IDLE, ONAM_B4=PULLUP, ZNAM_B5=IDLE, ONAM_B5=PULLUP, ZNAM_B6=IDLE, ONAM_B6=PULLUP, ZNAM_B7=IDLE, ONAM_B7=PULLUP"
-include "hadcon_atmel_read_register.template"
-
-substitute "RegName=DDR$(port), RegAddress=$(DDR), DRVL=0x0, DRVH=0xff, ZNAM_B0=INPUT, ONAM_B0=OUTPUT, ZNAM_B1=INPUT, ONAM_B1=OUTPUT, ZNAM_B2=INPUT, ONAM_B2=OUTPUT, ZNAM_B3=INPUT, ONAM_B3=OUTPUT, ZNAM_B4=INPUT, ONAM_B4=OUTPUT, ZNAM_B5=INPUT, ONAM_B5=OUTPUT, ZNAM_B6=INPUT, ONAM_B6=OUTPUT, ZNAM_B7=INPUT, ONAM_B7=OUTPUT" 
+substitute "RegName=PIN$(port), RegAddress=$(PIN), DRVL=0x0, DRVH=0xff"
+include "hadcon_atmel_register.template"
 include "hadcon_atmel_read_register.template"
 
 substitute "RegName=PIN$(port), RegAddress=$(PIN), DRVL=0x0, DRVH=0xff, ZNAM_B0=IDLE, ONAM_B0=TOGGLE, ZNAM_B1=IDLE, ONAM_B1=TOGGLE, ZNAM_B2=IDLE, ONAM_B2=TOGGLE, ZNAM_B3=IDLE, ONAM_B3=TOGGLE, ZNAM_B4=IDLE, ONAM_B4=TOGGLE, ZNAM_B5=IDLE, ONAM_B5=TOGGLE, ZNAM_B6=IDLE, ONAM_B6=TOGGLE, ZNAM_B7=IDLE, ONAM_B7=TOGGLE"
 include "hadcon_atmel_write_register.template"
 
 substitute "RegName=DDR$(port), RegAddress=$(DDR), DRVL=0x0, DRVH=0xff, ZNAM_B0=INPUT, ONAM_B0=OUTPUT, ZNAM_B1=INPUT, ONAM_B1=OUTPUT, ZNAM_B2=INPUT, ONAM_B2=OUTPUT, ZNAM_B3=INPUT, ONAM_B3=OUTPUT, ZNAM_B4=INPUT, ONAM_B4=OUTPUT, ZNAM_B5=INPUT, ONAM_B5=OUTPUT, ZNAM_B6=INPUT, ONAM_B6=OUTPUT, ZNAM_B7=INPUT, ONAM_B7=OUTPUT" 
+include "hadcon_atmel_register.template"
+include "hadcon_atmel_read_register.template"
 include "hadcon_atmel_write_register.template"
+
+#substitute "RegName=PORT$(port),RegAddress=$(PORT), DRVL=0x0, DRVH=0xff, ZNAM_B0=IDLE, ONAM_B0=PULLUP, ZNAM_B1=IDLE, ONAM_B1=PULLUP, ZNAM_B2=IDLE, ONAM_B2=PULLUP, ZNAM_B3=IDLE, ONAM_B3=PULLUP, ZNAM_B4=IDLE, ONAM_B4=PULLUP, ZNAM_B5=IDLE, ONAM_B5=PULLUP, ZNAM_B6=IDLE, ONAM_B6=PULLUP, ZNAM_B7=IDLE, ONAM_B7=PULLUP"
+#include "hadcon_atmel_read_register.template"
+
+
 
 include "hadcon_atmel_read_IO_port_register.template"
 

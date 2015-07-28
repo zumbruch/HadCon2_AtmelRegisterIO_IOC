@@ -20,16 +20,17 @@
 # CONFIG_SITE file.
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
+SUPPORT=/usr/local/epics/synApps_5_6/support
 
 # If using the sequencer, point SNCSEQ at its top directory:
-SNCSEQ=/home/epics/EPICS/EPICS-3.14.12.4/modules/soft/seq/seq-2.1.16
+SNCSEQ=$(SUPPORT)/seq-2-1-3
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/home/epics/EPICS/EPICS-3.14.12.4/base
+EPICS_BASE=/usr/local/epics/base-3.14.12.5
 
-ASYN=/home/epics/EPICS/EPICS-3.14.12.4/modules/soft/asyn/asyn4-23
+ASYN=$(SUPPORT)/asyn-4-18
 
-STREAM=/home/epics/EPICS/EPICS-3.14.12.4/modules/soft/StreamDevice/StreamDevice-2-6
+STREAM=$(SUPPORT)/stream-2-5-1
 
 # EPICS_BASE usually appears last so other apps can override stuff:
 #EPICS_BASE=$(EPICS_HOME)/base
@@ -37,3 +38,4 @@ STREAM=/home/epics/EPICS/EPICS-3.14.12.4/modules/soft/StreamDevice/StreamDevice-
 # Set RULES here if you want to take build rules from somewhere
 # other than EPICS_BASE:
 #RULES=/path/to/epics/support/module/rules/x-y
+

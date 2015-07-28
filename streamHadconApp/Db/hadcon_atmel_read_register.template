@@ -23,7 +23,6 @@
 # ZNAM/ONAM B6: "$(ZNAM_B6)/$(ONAM_B6)"
 # ZNAM/ONAM B7: "$(ZNAM_B7)/$(ONAM_B7)"
 record(longin, "$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):receive_$(RegName)$(SUFFIX)") 
   field(DESC, "receive $(RegName)@$(HADCON)")
   field(DTYP, "stream")
   field(SCAN, "I/O Intr")
@@ -32,7 +31,6 @@ record(longin, "$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX)") {
 }
 
 record(longin, "$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):read_$(RegName)$(SUFFIX)") 
   field(DESC, "read $(RegName)@$(HADCON)")
   field(DTYP, "stream")
   field(INP, "@hadcon_RGRE.proto read($(RegAddress)) $(device)")
@@ -40,14 +38,12 @@ record(longin, "$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX)") {
 }
 
 record(longin, "$(PREFIX)$(HADCON):$(NAME):request_$(RegName)$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):request_$(RegName)$(SUFFIX)") 
   field(DESC, "request $(RegName)@$(HADCON)")
   field(DTYP, "stream")
   field(INP, "@hadcon_RGRE.proto read_request($(RegAddress)) $(device)")
 }
 
 record(longin, "$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):$(RegName)$(SUFFIX)") 
   field(FLNK, "$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_ PP MS")
 }
 
@@ -72,134 +68,101 @@ record(longout, "$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_") {
 record(mbbiDirect, "$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_") {
   field(DESC, "split $(RegName)@$(HADCON)")
   field(DTYP, "Raw Soft Channel")
-  field(FLNK, "$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_ PP MS")
+  field(FLNK, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX)")
   field(INP, "$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX) NPP MS")
 }
 
 record(bo, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):$(RegName)_B0$(SUFFIX)") 
   field(ZNAM, "$(ZNAM_B1)")
   field(ONAM, "$(ONAM_B1)")
   field(OMSL, "closed_loop")
   field(DOL, "$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B0 NPP MS")
+  field(FLNK, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX)")
 }
 
 record(bo, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):$(RegName)_B1$(SUFFIX)") 
   field(ZNAM, "$(ZNAM_B1)")
   field(ONAM, "$(ONAM_B1)")
   field(OMSL, "closed_loop")
   field(DOL, "$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B1 NPP MS")
+  field(FLNK, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX)")
 }
 
 record(bo, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):$(RegName)_B2$(SUFFIX)") 
   field(ZNAM, "$(ZNAM_B1)")
   field(ONAM, "$(ONAM_B1)")
   field(OMSL, "closed_loop")
   field(DOL, "$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B2 NPP MS")
+  field(FLNK, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX)")
 }
 
 record(bo, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):$(RegName)_B3$(SUFFIX)") 
   field(ZNAM, "$(ZNAM_B1)")
   field(ONAM, "$(ONAM_B1)")
   field(OMSL, "closed_loop")
   field(DOL, "$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B3 NPP MS")
+  field(FLNK, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX)")
 }
 
 record(bo, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):$(RegName)_B4$(SUFFIX)") 
   field(ZNAM, "$(ZNAM_B1)")
   field(ONAM, "$(ONAM_B1)")
   field(OMSL, "closed_loop")
   field(DOL, "$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B4 NPP MS")
+  field(FLNK, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX)")
 }
 
 record(bo, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):$(RegName)_B5$(SUFFIX)") 
   field(ZNAM, "$(ZNAM_B1)")
   field(ONAM, "$(ONAM_B1)")
   field(OMSL, "closed_loop")
   field(DOL, "$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B5 NPP MS")
+  field(FLNK, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX)")
 }
 
 record(bo, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):$(RegName)_B6$(SUFFIX)") 
   field(ZNAM, "$(ZNAM_B1)")
   field(ONAM, "$(ONAM_B1)")
   field(OMSL, "closed_loop")
   field(DOL, "$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B6 NPP MS")
+  field(FLNK, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B7$(SUFFIX)")
 }
 
 record(bo, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B7$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):$(RegName)_B7$(SUFFIX)") 
   field(ZNAM, "$(ZNAM_B1)")
   field(ONAM, "$(ONAM_B1)")
   field(OMSL, "closed_loop")
   field(DOL, "$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B7 NPP MS")
 }
 
-record(fanout, "$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_") {
-    field(DESC, "split $(RegName)@$(HADCON)")
-  field(LNK1, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX) PP MS")
-  field(LNK2, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX) PP MS")
-  field(LNK3, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX) PP MS")
-  field(LNK4, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX) PP MS")
-  field(FLNK, "$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_ PP MS")
-}
-
-record(fanout, "$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_") {
-    field(DESC, "split $(RegName)@$(HADCON)")
-  field(LNK1, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX) PP MS")
-  field(LNK2, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX) PP MS")
-  field(LNK3, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX) PP MS")
-  field(LNK4, "$(PREFIX)$(HADCON):$(NAME):$(RegName)_B7$(SUFFIX) PP MS")
-}
-
-record(longout, "$(PREFIX)$(HADCON):$(NAME):addr_$(RegName)$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):addr_$(RegName)$(SUFFIX)") 
-  field(DESC, "Register Address")
-  field(PINI, "YES")
-  field(UDF, "0")
-  field(VAL, "0x$(RegAddress)")
-}
-
-record(stringout, "$(PREFIX)$(HADCON):$(NAME):name_$(RegName)$(SUFFIX)") {
-  alias("$(PREFIX)$(HADCON):$(ALIAS):name_$(RegName)$(SUFFIX)") 
-  field(PINI, "YES")
-  field(UDF, "0")
-  field(VAL, "$(RegName)")
-}
-
 #! Further lines contain data used by VisualDCT
-#! View(345,173,1.2)
-#! Record("$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX)",400,350,0,0,"$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX)")
-#! Field("$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX).FLNK",16777215,1,"$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX).FLNK")
+#! View(365,20,0.9)
+#! Record("$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX)",540,494,0,0,"$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX)")
+#! Field("$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX).FLNK",16711731,1,"$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX).FLNK")
 #! Link("$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX).FLNK","$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_")
-#! Field("$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX).VAL",16777215,1,"$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX).VAL")
-#! Record("$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX)",400,625,0,0,"$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX)")
-#! Field("$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX).FLNK",16777215,1,"$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX).FLNK")
+#! Field("$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX).VAL",52275,1,"$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX).VAL")
+#! Record("$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX)",540,707,0,0,"$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX)")
+#! Field("$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX).FLNK",16711731,1,"$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX).FLNK")
 #! Link("$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX).FLNK","$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_")
-#! Field("$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX).VAL",16777215,1,"$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX).VAL")
-#! Record("$(PREFIX)$(HADCON):$(NAME):request_$(RegName)$(SUFFIX)",400,220,0,0,"$(PREFIX)$(HADCON):$(NAME):request_$(RegName)$(SUFFIX)")
-#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX)",980,488,0,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX)")
-#! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX).FLNK",16777215,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX).FLNK")
+#! Field("$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX).VAL",52275,1,"$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX).VAL")
+#! Record("$(PREFIX)$(HADCON):$(NAME):request_$(RegName)$(SUFFIX)",540,342,0,0,"$(PREFIX)$(HADCON):$(NAME):request_$(RegName)$(SUFFIX)")
+#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX)",1120,730,0,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX)")
+#! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX).FLNK",16711731,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX).FLNK")
 #! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX).FLNK","$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_")
-#! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX).VAL",16777215,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX).VAL")
-#! Record("$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_",700,356,0,0,"$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_")
-#! Field("$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_.OUT",16777215,1,"$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_.OUT")
+#! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX).VAL",52275,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX).VAL")
+#! Record("$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_",840,479,16711731,0,"$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_")
+#! Field("$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_.OUT",52275,1,"$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_.OUT")
 #! Link("$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_.OUT","$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX).VAL")
-#! Field("$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_.DOL",16777215,0,"$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_.DOL")
+#! Field("$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_.DOL",52275,0,"$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_.DOL")
 #! Link("$(PREFIX)$(HADCON):$(NAME):deploy1_$(RegName)$(SUFFIX)_.DOL","$(PREFIX)$(HADCON):$(NAME):receive_$(RegName)$(SUFFIX).VAL")
-#! Record("$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_",700,636,0,0,"$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_")
-#! Field("$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_.OUT",16777215,1,"$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_.OUT")
+#! Record("$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_",840,679,16711731,0,"$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_")
+#! Field("$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_.OUT",52275,1,"$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_.OUT")
 #! Link("$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_.OUT","$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX).VAL")
-#! Field("$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_.DOL",16777215,0,"$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_.DOL")
+#! Field("$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_.DOL",52275,0,"$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_.DOL")
 #! Link("$(PREFIX)$(HADCON):$(NAME):deploy2_$(RegName)$(SUFFIX)_.DOL","$(PREFIX)$(HADCON):$(NAME):read_$(RegName)$(SUFFIX).VAL")
-#! Record("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_",1260,645,0,0,"$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_")
-#! Field("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.FLNK",16777215,1,"$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.FLNK")
-#! Link("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.FLNK","$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_")
+#! Record("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_",1360,687,16711731,1,"$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_")
+#! Field("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.FLNK",16711731,1,"$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.FLNK")
+#! Link("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.FLNK","$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_/FLNK")
 #! Field("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.INP",16777215,0,"$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.INP")
 #! Link("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.INP","$(PREFIX)$(HADCON):$(NAME):$(RegName)$(SUFFIX).VAL")
 #! Field("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B0",16777215,1,"$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B0")
@@ -210,49 +173,45 @@ record(stringout, "$(PREFIX)$(HADCON):$(NAME):name_$(RegName)$(SUFFIX)") {
 #! Field("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B5",16777215,1,"$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B5")
 #! Field("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B6",16777215,1,"$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B6")
 #! Field("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B7",16777215,1,"$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B7")
-#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX)",1780,325,0,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX)")
+#! Connector("$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_/FLNK","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX)",1571,563,16711731,"",0)
+#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX)",1680,254,16711731,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX)")
 #! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX).DOL",16777215,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX).DOL")
 #! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX).DOL","$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B0")
-#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX)",2100,345,0,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX)")
+#! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX).FLNK",16711731,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX).FLNK")
+#! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX).FLNK","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX)")
+#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX)",1940,314,16711731,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX)")
 #! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX).DOL",16777215,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX).DOL")
 #! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX).DOL","$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B1")
-#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX)",1760,485,0,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX)")
+#! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX).FLNK",16711731,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX).FLNK")
+#! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX).FLNK","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX)")
+#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX)",1680,454,16711731,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX)")
 #! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX).DOL",16777215,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX).DOL")
 #! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX).DOL","$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B2")
-#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX)",2100,505,0,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX)")
+#! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX).FLNK",16777215,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX).FLNK")
+#! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX).FLNK","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX)")
+#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX)",1940,494,0,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX)")
 #! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX).DOL",16777215,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX).DOL")
 #! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX).DOL","$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B3")
-#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX)",1780,645,0,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX)")
+#! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX).FLNK",16711731,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX).FLNK")
+#! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX).FLNK","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX)")
+#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX)",1680,634,16711731,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX)")
 #! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX).DOL",16777215,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX).DOL")
 #! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX).DOL","$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B4")
-#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX)",2100,665,0,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX)")
+#! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX).FLNK",16711731,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX).FLNK")
+#! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX).FLNK","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX)")
+#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX)",1940,674,16711731,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX)")
 #! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX).DOL",16777215,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX).DOL")
 #! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX).DOL","$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B5")
-#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX)",1760,805,0,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX)")
+#! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX).FLNK",16711731,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX).FLNK")
+#! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX).FLNK","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX)")
+#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX)",1680,814,16711731,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX)")
 #! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX).DOL",16777215,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX).DOL")
 #! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX).DOL","$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B6")
-#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B7$(SUFFIX)",2120,825,0,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B7$(SUFFIX)")
+#! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX).FLNK",16711731,1,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX).FLNK")
+#! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX).FLNK","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B7$(SUFFIX)")
+#! Record("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B7$(SUFFIX)",1940,867,16711731,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B7$(SUFFIX)")
 #! Field("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B7$(SUFFIX).DOL",16777215,0,"$(PREFIX)$(HADCON):$(NAME):$(RegName)_B7$(SUFFIX).DOL")
 #! Link("$(PREFIX)$(HADCON):$(NAME):$(RegName)_B7$(SUFFIX).DOL","$(PREFIX)$(HADCON):$(NAME):split_get_$(RegName)$(SUFFIX)_.B7")
-#! Record("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_",1700,16,0,0,"$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_")
-#! Field("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.LNK1",16777215,1,"$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.LNK1")
-#! Link("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.LNK1","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B0$(SUFFIX)")
-#! Field("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.LNK2",16777215,1,"$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.LNK2")
-#! Link("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.LNK2","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B1$(SUFFIX)")
-#! Field("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.LNK3",16777215,1,"$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.LNK3")
-#! Link("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.LNK3","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B2$(SUFFIX)")
-#! Field("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.LNK4",16777215,1,"$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.LNK4")
-#! Link("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.LNK4","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B3$(SUFFIX)")
-#! Field("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.FLNK",16777215,0,"$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.FLNK")
-#! Link("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)1_.FLNK","$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_")
-#! Record("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_",1660,1030,0,0,"$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_")
-#! Field("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_.LNK1",16777215,1,"$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_.LNK1")
-#! Link("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_.LNK1","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B4$(SUFFIX)")
-#! Field("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_.LNK2",16777215,1,"$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_.LNK2")
-#! Link("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_.LNK2","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B5$(SUFFIX)")
-#! Field("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_.LNK3",16777215,1,"$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_.LNK3")
-#! Link("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_.LNK3","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B6$(SUFFIX)")
-#! Field("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_.LNK4",16777215,1,"$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_.LNK4")
-#! Link("$(PREFIX)$(HADCON):$(NAME):fo_split_get_$(RegName)$(SUFFIX)2_.LNK4","$(PREFIX)$(HADCON):$(NAME):$(RegName)_B7$(SUFFIX)")
-#! Record("$(PREFIX)$(HADCON):$(NAME):addr_$(RegName)$(SUFFIX)",580,845,0,1,"$(PREFIX)$(HADCON):$(NAME):addr_$(RegName)$(SUFFIX)")
-#! Record("$(PREFIX)$(HADCON):$(NAME):name_$(RegName)$(SUFFIX)",880,860,0,1,"$(PREFIX)$(HADCON):$(NAME):name_$(RegName)$(SUFFIX)")
+#! TextBox(TB0,560,320,680,340,0,"Dialog",12,1,16777215,"Request (via Intr.)",null)
+#! TextBox(TB1,560,460,680,480,0,"Dialog",12,1,16777215,"Receive (via Intr.)",null)
+#! TextBox(TB2,560,680,680,700,0,"Dialog",12,1,16777215,"Read",null)
